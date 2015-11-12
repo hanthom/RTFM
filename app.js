@@ -1,18 +1,15 @@
-
-
-
 var app = angular.module('rtfmApp', ['firebase', 'ui.router']);
 
 app.constant("fb", {url:"https://burning-inferno-4249.firebaseIO.com"});
 
-app.config(function($stateProvider, $urlRoutherProvider) {
+app.config(function($stateProvider, $urlRouterProvider) {
 
-	$urlRoutherProvider.otherwise('/threads');
+	$urlRouterProvider.otherwise('/threads');
 
 	$stateProvider
-		.state({
+		.state('threads', {
 			url: '/threads',
-			controller: 'threadsCtrl'
+			controller: 'threadsCtrl',
 			templateUrl: 'templates/threadsTmpl.html',
 			resolve: {
 				threadsRef: function(threadService) {
@@ -20,10 +17,10 @@ app.config(function($stateProvider, $urlRoutherProvider) {
 				}
 			},
 		})
-		.state({
-			url: '/threads/:threadId'
+		.state('thread', {
+			url: '/threads/:threadId',
 			controller: 'threadCtrl',
-			tempalteUrl: 'templates/threadTmpl.html',
+			templateUrl: 'templates/threadTmpl.html',
 			resolve: {
 				threadRef: function(threadService, $stateParams) {
 					return threadService.getThread($stateParams.threadId);
