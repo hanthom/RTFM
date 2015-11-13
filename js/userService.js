@@ -1,6 +1,6 @@
 app.service('userService', function($firebaseAuth, $state) {
 
-	var authRef = new Firebase("https://burning-inferno-4249.firebaseapp.com");
+	var authRef = new Firebase("https://burning-inferno-4249.firebaseIO.com");
 	var auth = $firebaseAuth(authRef);
 
 	this.getUser = function() {
@@ -8,11 +8,11 @@ app.service('userService', function($firebaseAuth, $state) {
 	}
 
 	this.register = function(newUser) {
-		return $createUser(newUser);
+		return auth.$createUser(newUser);
 	}
 
 	this.login = function(user) {
-		return $authWithPassword(user);
+		return auth.$authWithPassword(user);
 	}
 
 	this.logout = function(user) {

@@ -1,10 +1,14 @@
 <form ng-submit="login()">
 	
+<h1>Login Page</h1>
+
 	<div>
 		{{error}}	
 	</div>
 
-	Email: <input text="email" ng-model="user.email"/>
-	Password: <input text="password" ng-model="user.password"/>
-	<button type="submit">Register</button>
+	Email: <input type="email" ng-model="user.email"/>
+	Password: <input type="password" ng-model="user.password"/>
+	<button type="submit">Sign In</button>
 </form>
+
+<a ui-sref="signup">Register</a>

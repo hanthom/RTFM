@@ -45,6 +45,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
 			controller: function(userService) {
 				return userService.logout();
 			}
-		})
+		});
 
 })
