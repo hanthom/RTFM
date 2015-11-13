@@ -3,7 +3,7 @@ app.service('userService', function($firebaseAuth, $state) {
 	var authRef = new Firebase("https://burning-inferno-4249.firebaseIO.com");
 	var auth = $firebaseAuth(authRef);
 
-	this.getUser = function() {
+	this.getAuth = function() {
 		return auth.$getAuth();
 	}
 

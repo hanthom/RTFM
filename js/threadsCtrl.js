@@ -2,7 +2,7 @@ app.controller('threadsCtrl', function($scope, threadsRef, $firebaseArray, $stat
 
 	$scope.threads = $firebaseArray(threadsRef);
 
-	if (!userService.getUser()) {
+	if (!userService.getAuth()) {
 		$state.go('login');
 	}
 
@@ -16,5 +16,9 @@ app.controller('threadsCtrl', function($scope, threadsRef, $firebaseArray, $stat
 			title: title,
 		});
 	};
+
+	$scope.logout = function() {
+		userService.logout();
+	}
 
 });
