@@ -29,6 +29,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
 					return threadService.getComments($stateParams.threadId);
 				}
 			},
-		});
+		})
+		.state('login', {
+			url: '/login',
+			controller: 'loginCtrl',
+			templateUrl: 'templates/login.html',
+		})
+		.state('signup', {
+			url: '/signup',
+			controller: 'signupCtrl',
+			templateUrl: 'templates/signup.html',
+		})
+		.state('logout', {
+			url:'/logout',
+			controller: function(userService) {
+				return userService.logout();
+			}
+		})
 
 })
